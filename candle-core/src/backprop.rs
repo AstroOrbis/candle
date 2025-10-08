@@ -777,4 +777,11 @@ impl GradStore {
     pub fn get_ids(&self) -> impl Iterator<Item = &TensorId> {
         self.0.keys()
     }
+
+    pub fn clip_value(&mut self, clip_val: f64) -> Result<()> {
+        for grad in self.0.values_mut() {
+            *grad = grad.clamp(-clip_val, clip_val)?;
+        }
+        Ok(())
+    }
 }
