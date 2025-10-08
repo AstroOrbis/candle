@@ -33,6 +33,9 @@ thiserror = { workspace = true }
 yoke = { workspace = true }
 zip = { workspace = true }
 
+profiling = { git = "https://github.com/astroorbis/profiling.git", branch = "master", optional = true }
+
+
 [target.'cfg(all(not(target_arch = "wasm32"), not(target_os = "ios")))'.dependencies]
 ug = { workspace = true }
 ug-cuda = { workspace = true, optional = true }
@@ -55,6 +58,7 @@ metal = [
     "dep:candle-metal-kernels",
     "dep:ug-metal",
 ]
+profiling = ["dep:profiling"]
 
 [[bench]]
 name = "bench_main"

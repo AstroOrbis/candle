@@ -36,6 +36,7 @@ impl GroupNorm {
     }
 }
 
+#[cfg_attr(feature = "profiling", profiling::all_functions)]
 impl crate::Module for GroupNorm {
     fn forward(&self, x: &Tensor) -> Result<Tensor> {
         let x_shape = x.dims();

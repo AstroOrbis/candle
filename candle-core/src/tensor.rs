@@ -176,6 +176,7 @@ pub(crate) fn from_storage<S: Into<Shape>>(
     Tensor(Arc::new(tensor_))
 }
 
+#[cfg_attr(feature = "profiling", profiling::all_functions)]
 impl Tensor {
     pub(crate) fn ones_impl<S: Into<Shape>>(
         shape: S,

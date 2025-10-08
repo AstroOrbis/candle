@@ -128,6 +128,7 @@ impl ParamsConvTranspose2D {
     }
 }
 
+#[cfg_attr(feature = "profiling", profiling::all_functions)]
 impl Tensor {
     fn conv1d_single_group(&self, kernel: &Self, params: &ParamsConv1D) -> Result<Self> {
         let storage =

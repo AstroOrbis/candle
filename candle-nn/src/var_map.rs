@@ -13,6 +13,7 @@ pub struct VarMap {
     data: Arc<Mutex<HashMap<String, Var>>>,
 }
 
+#[cfg_attr(feature = "profiling", profiling::all_functions)]
 impl VarMap {
     /// Create a new empty `VarMap`.
     #[allow(clippy::new_without_default)]

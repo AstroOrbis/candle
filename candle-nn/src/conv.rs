@@ -172,6 +172,7 @@ pub struct Conv2d {
     config: Conv2dConfig,
 }
 
+#[cfg_attr(feature = "profiling", profiling::all_functions)]
 impl Conv2d {
     pub fn new(weight: Tensor, bias: Option<Tensor>, config: Conv2dConfig) -> Self {
         Self {
@@ -214,6 +215,7 @@ impl Conv2d {
     }
 }
 
+#[cfg_attr(feature = "profiling", profiling::all_functions)]
 impl crate::Module for Conv2d {
     fn forward(&self, x: &Tensor) -> Result<Tensor> {
         let x = x.conv2d_with_algo(
