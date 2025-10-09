@@ -37,6 +37,7 @@ pub struct SGD {
     learning_rate: f64,
 }
 
+#[cfg_attr(feature = "profiling", profiling::all_functions)]
 impl Optimizer for SGD {
     type Config = f64;
 
@@ -114,6 +115,7 @@ pub struct AdamW {
     params: ParamsAdamW,
 }
 
+#[cfg_attr(feature = "profiling", profiling::all_functions)]
 impl Optimizer for AdamW {
     type Config = ParamsAdamW;
 
